@@ -1,3 +1,7 @@
-console.log(process.argv)
+const note = process.argv[2]
+const newNote = {
+    content : note,
+    id : Date.now()
+}
 
-console.log(process.env)
+console.log(newNote)
