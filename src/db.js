@@ -12,7 +12,7 @@ export const saveDB = async (db) => {
     return db
 }
 
-export const insert = async (db) => {
+export const insertDB = async (db) => {
     const db = await getDB()
     db.notes.push(data)
     await saveDB(db)
