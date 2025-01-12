@@ -6,3 +6,10 @@ const readPjson = async () => {
 }
 
 readPjson()
+
+const writeFile = async () => {
+    const newFile = new URL('./demo.js', import.meta.url).pathname
+    await fs.writeFile(newFile, 'console.log("Yoooo!")')
+}
+
+writeFile()
