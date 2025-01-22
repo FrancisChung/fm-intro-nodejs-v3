@@ -13,15 +13,16 @@ import { hideBin } from 'yargs/helpers'
 import {newNote} from "./notes.js";
 
 yargs(hideBin(process.argv))
-    .command('new <Note>', 'Create a new note', yargs  => {
+    .command('new <note>', 'create a new note', yargs => {
         return yargs.positional('note', {
-            type: 'string',
-            description: 'The content of the note to create',
+            describe: 'The content of the note you want to create',
+            type: 'string'
         })
     }, async (argv) => {
         const tags = argv.tags ? argv.tags.split(',') : []
+        console.log('argv.note ', argv.note)
         const note = await newNote(argv.note, tags)
-        console.log('New note! ', note)
+        console.log('Note added!', note)
     })
     .option('tags', {
         alias: 't',
