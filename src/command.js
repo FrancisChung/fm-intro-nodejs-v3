@@ -19,7 +19,7 @@ yargs(hideBin(process.argv))
             description: 'The content of the note to create',
         })
     }, async (argv) => {
-        const tags = argv.tags ? arvg.tags.split(',') : []
+        const tags = argv.tags ? argv.tags.split(',') : []
         const note = await newNote(argv.note, tags)
         console.log('New note! ', note)
     })
