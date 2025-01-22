@@ -48,8 +48,8 @@ yargs(hideBin(process.argv))
             type: 'string'
         })
     }, async (argv) => {
-        const notes = await findNotes(argv.filter)
-        listNotes(notes)
+        const matches = await findNotes(argv.filter)
+        listNotes(matches)
     })
     .command('remove <id>', 'remove a note by id', yargs => {
         return yargs.positional('id', {
