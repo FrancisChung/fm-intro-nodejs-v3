@@ -1,4 +1,4 @@
-import {jest} from '@jest/globals'
+import { jest }  from '@jest/globals';
 
 jest.unstable_mockModule('../src/db.js', () => ({
     insertDB: jest.fn(),
@@ -13,6 +13,20 @@ beforeEach(() => {
     insertDB.mockClear()
     getDB.mockClear()
     saveDB.mockClear()
+})
+
+test('newNote inserts data and returns it', async() => {
+    const note = 'Test Note'
+    const tags = ['tag1', 'tag2']
+    const data = {
+        tags,
+        content: note,
+        id: Date.now(),
+    }
+    insertDB.mockResolvedValue(data)
+
+    const result = await newNote(data.content, data.tags)
+    expect(result).toEqual(data)
 })
 
 
