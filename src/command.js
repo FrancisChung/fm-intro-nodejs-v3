@@ -79,5 +79,16 @@ yargs(hideBin(process.argv))
         await removeAllNotes()
         console.log('All notes removed')
     })
+    .command('web [port]', 'launch website to see notes', yargs => {
+        return yargs
+            .positional('port', {
+                describe: 'port to bind on',
+                default: 5000,
+                type: 'number'
+            })
+    }, async (argv) => {
+        const notes = await getAllNotes()
+        start(notes, argv.port)
+    })
     .demandCommand(1)
     .parse()
