@@ -21,7 +21,9 @@
   },
   "homepage": "https://github.com/FrancisChung/fm-intro-nodejs-v3#readme",
   "dependencies": {
-    "jest": "^29.7.0",
     "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
   }
 }
